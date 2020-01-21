@@ -1,0 +1,259 @@
+{
+    "输出": {
+        "prefix": "pl",
+        "body": [
+            "System.out.println($1);"
+        ],
+        "description": "输出并换行"
+    },
+    "格式输出": {
+        "prefix": "printf",
+        "body": [
+            "System.out.printf(\"$1\", $2);"
+        ],
+        "description": "格式化输出"
+    },
+    "不换行输出": {
+        "prefix": "p",
+        "body": [
+            "System.out.print($1);"
+        ],
+        "description": "格式化输出"
+    },
+    "导入": {
+        "prefix": "im",
+        "body": [
+            "import ${1:java}.${2:util}.${3.*};"
+        ],
+        "description": "导入包"
+    },
+    "主方法": {
+        "prefix": "main",
+        "body": [
+            "pubilc static void main(String[] args) {",
+            "\t$1",
+            "}"
+        ],
+        "description": "主方法"
+    },
+    "字符串": {
+        "prefix": "str",
+        "body": [
+            "String $1"
+        ],
+        "description": "字符串"
+    },
+    "主类": {
+        "prefix": "cl",
+        "body": [
+            "${1:public} class $TM_FILENAME_BASE",
+            "{",
+            "\t$2",
+            "}"
+        ],
+        "description": "主类"
+    },
+    "判断": {
+        "prefix": "if",
+        "body": [
+            "if ($1) {",
+            "\t$2",
+            "}"
+        ],
+        "description": "判断"
+    },
+    "else 语句": {
+            "prefix": "el",
+            "body": [
+                "else {",
+                "\t$1",
+                "}"
+            ],
+            "description": "else 语句"
+        },
+        "else if 语句": {
+            "prefix": "elif",
+            "body": [
+                "else if ( $1 ) {",
+                "\t$2",
+                "}"
+            ],
+            "description": "else if 语句"
+        },
+    "判断双分支": {
+        "prefix": "ife",
+        "body": [
+            "if ($1) {",
+            "\t$2",
+            "}",
+            "else {",
+            "\t$3",
+            "}"
+        ],
+        "description": "判断双分支"
+    },
+    "常规循环": {
+        "prefix": "for",
+        "body": [
+            "for (${1:int} ${2:i} = ${3:0}; ${2:i} < ${4:max}; ${2:i}++) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "常规循环"
+    },
+    "遍历集合": {
+        "prefix": "fore",
+        "body": [
+            "for (${1:type} ${2:var} : ${3:iterable}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "遍历集合"
+    },
+    "ifnotnull": {
+        "prefix": "ifnotnull",
+        "body": [
+            "if (${1:condition} != null) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "if statement checking for not null"
+    },
+    "while 循环": {
+        "prefix": "wh",
+        "body": [
+            "while (${1:condition}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "While Statement"
+    },
+    "Do 循环": {
+        "prefix": "do",
+        "body": [
+            "do {",
+            "\t$0",
+            "} while (${1:condition});"
+        ],
+        "description": "Do 循环"
+    },
+    "Public constructor": {
+        "prefix": "ctor",
+        "body": [
+            "public ${1:${TM_FILENAME_BASE}}($2) {",
+            "\t${0:super();}",
+            "}"
+        ],
+        "description": "Public constructor"
+    },
+    "try": {
+        "prefix": "try",
+        "body": [
+            "try {",
+            "\t$1",
+            "} catch (${2:Exception} ${3:e}) {",
+            "\t${3:e}.printStackTrace();",
+            "}"
+        ],
+        "description": "try/catch block"
+    },
+    "tryresources": {
+        "prefix": "try_resources",
+        "body": [
+            "try ($1) {",
+            "\t$2",
+            "} catch (${3:Exception} ${4:e}) {",
+            "\t$5//${0:TODO}: handle exception",
+            "}"
+        ]
+    },
+    "私有方法": {
+        "prefix": "private_method",
+        "body": [
+            "private ${1:void} ${2:name}($3) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "私有方法"
+    },
+    "共有方法": {
+        "prefix": "public_method",
+        "body": [
+            "public ${1:void} ${2:name}(${3}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "公有方法"
+    },
+    "私有静态方法": {
+        "prefix": "private_static_method",
+        "body": [
+            "private static ${1:Type} ${2:name}(${3}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "私有静态方法"
+    },
+    "共有静态方法": {
+        "prefix": "static",
+        "body": [
+            "public static ${1:void} ${2:name}(${3}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "共有静态方法"
+    },
+    "受保护的成员": {
+        "prefix": "pro",
+        "body": [
+            "protected ${1:void} ${2:name}(${3}) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "受保护的成员"
+    },
+    "选择语句": {
+        "prefix": "switch",
+        "body": [
+            "switch (${1:key}) {",
+            "\tcase ${2:value}:",
+            "\t\t$0",
+            "\t\tbreak;",
+            "",
+            "\tdefault:",
+            "\t\tbreak;",
+            "}"
+        ],
+        "description": "选择语句"
+    },
+    "创建对象": {
+        "prefix": "new",
+        "body": [
+            "${0:Object} ${1:foo} = new ${0:Object}();"
+        ],
+        "description": "创建对象"
+    },
+    "私有成员": {
+        "prefix": "prf",
+        "body": [
+            "private ${1:String} ${2:name};"
+        ],
+        "description": "私有成员"
+    },
+    "实现接口": {
+        "prefix": "imp",
+        "body": [
+            "implements ${1:Runnable}"
+        ],
+        "description": "实现接口"
+    },
+    "定义接口": {
+        "prefix": "inte",
+        "body": [
+            "${1:public} interface ${2:${TM_FILENAME_BASE}} {",
+            "\t${3:void method()};",
+            "}"
+        ],
+        "description": "定义接口"
+    }
+}
